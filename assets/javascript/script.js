@@ -3,33 +3,54 @@ $currentDay.text(moment().format("D MMM YYYY")); //Display current date on scree
 
 const dailyTimes = ["8 AM", "9 AM", "10 AM", "11AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"];
 var $containerElement = $(".container");
-var localTime = moment().format("LT");
+var localTime = moment().format("LT"); // Current local time
 
+// Starts the page, loads all rows and their stored information
 function displayTimes() {
+    var $row, $timeBlock, $textArea, $saveBtn;
     dailyTimes.forEach(function(element, index){
-        var $row = $("<div>").addClass("row");
+        $row = $("<div>").addClass("row");
         $containerElement.append($row);
 
-        var $timeBlock = $("<div>").addClass("time-block").text(element);
+        $timeBlock = $("<div>").addClass("time-block").text(element);
         $row.append($timeBlock);
 
-        var $textArea = $("<textarea>");
+        $textArea = $("<textarea>").addClass("description");
         $row.append($textArea);
 
-        var $saveBtn = $("<button>").addClass("saveBtn");
+        $saveBtn = $("<button>").addClass("saveBtn");
         $row.append($saveBtn);
-        $saveBtn.on("click", saveDescription());
 
         //checkTime();
     })
 }
 
-function saveDescription() {
-    
+// function to save information written on local Storage
+function saveInfo() {
+    $(".saveBtn").click(function(){
+        var btnClicked = $(this);
+        var text = btnClicked.siblings(".description").val();
+        localStorage.setItem("task", text);
+    });
+}
+
+function loadInfo() {
+    var textArray = document.querySelectorAll(".description");
+    console.log(textArray);
+
+    textArray.forEach(function(element, index){
+        var task = localStorage.getItem("task");
+        console.log(task);
+    });
+}
+
+// function to color rows according to current time
+function checkTime() {
+
 }
 
 // if("11 AM" < localTime && localTime < "12 PM")way to know range of time it is at a certain time
 
 displayTimes();
-
-console.log(moment().format("8:00","h:mma"));
+loadInfo();
+saveInfo();
