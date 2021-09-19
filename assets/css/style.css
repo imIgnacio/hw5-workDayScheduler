@@ -58,7 +58,7 @@ textarea {
 }
 
 .saveBtn {
-  background-image: url(/assets/images/floppyDisk.png);
+  background-image: url(https://github.com/imIgnacio/hw5-workDayScheduler/blob/main/assets/images/floppyDisk.png);
   background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;
