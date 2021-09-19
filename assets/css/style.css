@@ -11,7 +11,6 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
-  width: 70%;
 }
 
 .jumbotron { /*HTML*/
@@ -40,7 +39,7 @@ textarea {
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border-top: 1px solid #000000;
 }
 
 .past {
@@ -63,7 +62,6 @@ textarea {
   background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;
-  width: 10%;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
